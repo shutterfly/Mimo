@@ -1,0 +1,36 @@
+{{> header }}
+
+<h2>Resources: </h2>
+<br/>
+<div>
+    <table class="table table-hover" style="border:1px">
+        <thead>
+            <tr>
+                <th>Path</th>
+                <th>http Code</th>
+                <th>Content Type</th>
+                <th>Body</th>
+            </tr>
+        </thead>
+        {{#each out}}
+        <tr>
+            <td>{{this.path}}</td>
+            <td>{{this.httpCode}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.body}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div>
+    <!--<a href="/rsrc/create">-->
+    <a href="/user/{{user_id}}/app/{{app_id}}/rsrc/create">
+        <div class="btn btn-primary btn-large" >
+            Create a Resource !
+        </div>
+        </form>
+    </a>    <br/>
+</div>
+
+{{> footer }}

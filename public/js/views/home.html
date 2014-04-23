@@ -1,0 +1,29 @@
+<h2>My Apps</h2>
+
+<table class="table table-condensed table-striped table-hover" ng-if="apps">
+        <thead>
+          <tr>
+            <th>App Name</th>
+            <th>Base URL</th>
+            <th>Active</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="table-bordered">
+          <tr ng-repeat="app in apps">
+            <td>{{app.name}}</td>
+            <td>{{app.base_url}}</td>
+            <!--<td><i style="color: lightskyblue" class="glyphicon glyphicon-info-sign"></i>{{app.description}}</td>-->
+            <td><span ng-if="app.active > 0"><i class="glyphicon glyphicon-ok-sign" style="color:green"></i></span></td>
+            <td><a href="#" ng-href="#/app/{{app.id}}" class="pull-right btn btn-info btn-xs">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+<div ng-if="apps == null">
+    No Apps found.
+    <br/>
+    <br/>
+</div>
+
+<a href="#" class="btn btn-primary" ng-href="#/app/create">Create New App</a>

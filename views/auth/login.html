@@ -1,0 +1,22 @@
+{{> header }}
+
+<!--<h2>User Login</h2>-->
+<br/>
+<br/>
+<div class="container">
+    <form class="form-signin" action="/login" method="post">
+        <h2 class="form-signin-heading">Login</h2>
+        {{#if msg}}
+        <div class="alert alert-danger">{{msg}}</div>
+        {{/if}}
+        <input type="text" class="form-control" placeholder="Username" name="username" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" name="password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+        <br/>
+        <div style="text-align: center"><a href="/signup">Sign Up</a></div>
+    </form>
+
+</div>
+
+{{> footer }}

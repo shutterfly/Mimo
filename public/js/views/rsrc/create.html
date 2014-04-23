@@ -1,0 +1,61 @@
+<h2><a ng-href="#">My Apps</a> / <a ng-href="#/app/{{app.id}}">{{app.name}}</a> / {{action}} Resource</h2>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+        <div class="alert alert-danger" ng-show="error">{{error}}</div>
+        <div class="alert alert-warning" ng-show="warning">{{warning}}</div>
+
+        <form name="rsrcForm" role="form" ng-submit="submit()">
+            <div class="form-group">
+                <label for="path">Path</label>
+                <input type="text" class="form-control" id="path" ng-model="res.path" placeholder="/example" required>
+                <div class="small">Full Path: {{app.base_url}}{{res.path}}</div>
+            </div>
+
+            <div class="form-group">
+                <label for="contentType">Content Type</label>
+                <select ng-model="res.content_type" id="contentType" class="form-control">
+                    <option value="{{type.name}}" ng-repeat="type in contentTypes">{{type.type}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="responseCode">Response Code</label>
+                <select ng-model="res.http_code" id="responseCode" class="form-control">
+                    <option value="{{code.name}}" ng-repeat="code in codes">{{code.value}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select ng-model="res.type" id="type" ng-model="res.type" class="form-control">
+                    <option value="simple">Basic - Simple Body</option>
+                    <option value="js">Advanced - JavaScript App</option>
+                </select>
+                <div class="small pull-right">Advanced <a href="/docs" target="_blank">Docs</a> </div>
+            </div>
+            <div class="form-group">
+                <label for="inputRsrcBody">Body </label>
+                <textarea class="form-control" ng-model="res.body" id="inputRsrcBody" placeholder="Body" rows="8"
+                          required></textarea>
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <a class="btn btn-danger confirm pull-right" ng-if="action == 'Edit'" ng-click="delete()">Delete</a>
+                <button type="submit" class="btn btn-primary">{{action}} Resource</button>
+            </div>
+
+
+        </form>
+
+
+    </div>
+</div>
+
+<div>
+    <a href="#" ng-href="#/app/{{app.id}}">Back</a>
+</div>

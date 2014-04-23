@@ -1,0 +1,55 @@
+ <h2>{{action}} App</h2>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+        <div class="alert alert-danger" ng-if="error">{{error}}</div>
+
+        <form role="form" id="createApp" ng-submit="submit()">
+            <div class="form-group">
+                <label for="name">App Name</label>
+                <input type="text" style="width:450px" class="form-control" id="name" ng-model="app.name"
+                       placeholder="App Name">
+            </div>
+
+            <div class="form-group">
+                <label for="short_name">Short Name</label>
+                <input type="text" style="width:250px" class="form-control" id="short_name" ng-model="app.short_name"
+                       placeholder="Short Name"  ng-keyup="keyup()" >
+            </div>
+            <div class="form-group">
+                <label for="active">Active</label>
+                <select class="form-control" ng-model="app.active" id="active" style="width:250px;">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="public">Show In Public Directory</label>
+                <select class="form-control" ng-model="app.public" id="public" style="width:250px;">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" ng-model="app.description" rows="5" id="description">
+                </textarea>
+            </div>
+
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary" ng-if="action == 'Create'">Create</button>
+                <button type="submit" class="btn btn-primary" ng-if="action == 'Edit'">Save</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+<div>
+    <a href="#" ng-href="#/user">Back</a>
+</div>

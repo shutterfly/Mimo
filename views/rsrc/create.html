@@ -1,0 +1,104 @@
+{{> header }}
+
+<!-- Create a Resource -->
+
+<div style="text-align:center;">
+    <div>
+        <br/>
+
+        {{#if update}}
+        <form name="rsrcForm" class="form-horizontal form-signin" role="form" onsubmit="return validateRsrcForm()"
+              action="/user/{{user_id}}/app/{{app_id}}/rsrc/{{out.id}}" method="post">
+            {{ else }}
+            <form name="rsrcForm" class="form-horizontal form-signin" role="form" onsubmit="return validateRsrcForm()"
+                         action="/user/{{user_id}}/app/{{app_id}}/rsrc/create" method="post">
+            {{/if}}
+            <h2 class="form-signin-heading">{{title}}</h2>
+            <br/>
+
+            <div class="form-group">
+                <label for="inputRsrcPathName" class="col-sm-2 control-label">Path </label>
+
+                <div class="col-sm-10">
+                    <input name="rsrcPath" type="text" class="form-control" id="inputRsrcPathName" value="{{out.path}}"
+                           placeholder="Resource Path">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="selectRsrcType" class="col-sm-2 control-label">Type </label>
+
+
+                <div class="col-sm-10" style="text-align:left">
+                    {{#if update}}
+                    {{out.type}}
+                    {{ else }}
+                    <select name="rsrcType" id="selectRsrcType" class="form-control">
+                        <option value="selectTypeBasic">Basic</option>
+                        <option value="selectTypeAdvanced">Advanced</option>
+                    </select>
+                {{/if}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="selectRsrcContentType" class="col-sm-2 control-label">Content Type </label>
+
+                <div class="col-sm-10" style="text-align:left">
+                    {{#if update}}
+                    {{out.headers}}
+                    {{ else }}
+                    <select name="rsrcContentType" id="selectRsrcContentType" class="form-control">
+                        {{#each contentType}}
+                        <option value={{this.type}}>{{this.type}}</option>
+                        {{/each}}
+                    </select>
+                    {{/if}}
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="selectRsrcStatusCode" class="col-sm-2 control-label">Status Code </label>
+
+                <div class="col-sm-10" style="text-align:left">
+                    {{#if update}}
+                    {{out.httpCode}}
+                    {{ else }}
+                    <select name="rsrcStatusCode" id="selectRsrcStatusCode" class="form-control">
+                        {{#each codes}}
+                        <option value={{this.name}}>{{this.value}}</option>
+                        {{/each}}
+                    </select>
+
+                    {{/if}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputRsrcBody" class="col-sm-2 control-label">Body </label>
+
+                <div class="col-sm-10">
+                    <textarea name="rsrcBody" class="form-control" id="inputRsrcBody" placeholder="Body" rows="12">{{out.body}}</textarea>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="submit" class="btn btn-default">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- List Apps in Store -->
+    <div>
+        <a class="btn btn-primary btn-large" href="/user/{{user_id}}/app/{{app_id}}">
+            Back to App
+        </a>
+    </div>
+    <br/>
+</div>
+
+{{> footer }}

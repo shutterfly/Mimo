@@ -1,0 +1,16 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div style="float:right;padding-right:10px;padding-top:8px">
+            {{#if loggedin}}
+            <a class="btn btn-default btn-link" href="/logout">Logout</a>
+            {{else}}
+            <a class="btn btn-default btn-link" href="/login">Login</a>
+            {{/if}}
+        </div>
+        <div class="navbar-header">
+
+
+            <a class="navbar-brand" href="/">Mimo</a>
+        </div>
+    </div>
+</div>

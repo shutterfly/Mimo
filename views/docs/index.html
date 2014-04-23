@@ -1,0 +1,66 @@
+{{> header }}
+
+
+<h2>Docs</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Request Functions</h2>
+            {{#each request}}
+            <a name="{{this.title}}"></a>
+
+            <div style="margin-bottom: 25px">
+
+                <h4>{{this.title}}</h4>
+
+                <div><strong>Description:</strong> {{this.description}}</div>
+                <div><strong>Example:</strong>
+                    <code class="javascript">{{this.example}}</code>
+                </div>
+                {{#if this.result}}
+                <div><strong>Result:</strong> {{this.result}}</div>
+                {{/if}}
+            </div>
+            {{/each}}
+
+
+            <h2>Reponse Functions</h2>
+            {{#each response}}
+            <a name="{{this.title}}"></a>
+
+            <div style="margin-bottom: 25px">
+
+                <h4>{{this.title}}</h4>
+
+                <div><strong>Description:</strong> {{this.description}}</div>
+                <div><strong>Example:</strong>
+                    <code class="javascript">{{this.example}}</code>
+                </div>
+                {{#if this.result}}
+                <div><strong>Result:</strong> {{this.result}}</div>
+                {{/if}}
+            </div>
+            <hr/>
+            {{/each}}
+        </div>
+
+        <div class="col-md-2">
+            <strong>Request</strong>
+            {{#each request}}
+            <div>
+                <a style="padding-left:15px" href="#{{this.title}}">{{this.title}}</a>
+            </div>
+            {{/each}}
+
+            <strong>Response</strong>
+            {{#each response}}
+            <div>
+                <a style="padding-left:15px" href="#{{this.title}}">{{this.title}}</a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+
+{{> footer }}

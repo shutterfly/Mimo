@@ -1,0 +1,129 @@
+{{> header }}
+
+{{> header }}
+
+<br/>
+<br/>
+<div class="panel panel-default" style="margin: 0 auto; width: 400px; padding: 10px">
+    <h2>Sign Up</h2>
+
+    <div class="panel-body">
+
+        <form role="form" id="signUp" action="/signup" method="post">
+
+            {{#if error}}
+                <div class="alert alert-danger">{{error}}</div>
+            {{/if}}
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name"
+                       placeholder="John Smith" required value="{{name}}">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email"
+                       placeholder="jsmith@example.com" required value="{{email}}">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username"
+                       placeholder="jsmith" name="username" required value="{{username}}">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password2">Confirm Passowrd</label>
+                <input type="password" class="form-control" id="password2" name="password2" required>
+            </div>
+
+            <div class="form-group ">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+<!--<div style="text-align:center;">-->
+<!--<div style="display:inline-block; width:50%">-->
+<!--<br/>-->
+
+<!--<form name="userForm" class="form-horizontal form-signin" role="form" onsubmit="return validateUserForm()"-->
+<!--action="/signup" method="post">-->
+<!--<h2 class="form-signin-heading">Sign Up</h2>-->
+<!--<br/>-->
+
+<!--<div class="form-group">-->
+<!--<label for="inputUserName" class="col-sm-4 control-label">Username </label>-->
+
+<!--<div class="col-sm-8">-->
+<!--<input name="username" type="text" class="form-control" id="inputUserName" placeholder="Username">-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="form-group">-->
+<!--<label for="inputName" class="col-sm-4 control-label">Name </label>-->
+<!--<div class="col-sm-8">-->
+<!--<input name="name" type="text" class="form-control" id="inputname" placeholder="Name">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<label for="inputUserEmail" class="col-sm-4 control-label">Email </label>-->
+
+<!--<div class="col-sm-8">-->
+<!--<input name="email" type="email" class="form-control" id="inputUserEmail"-->
+<!--placeholder="email@example.com">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<label for="inputUserPassword" class="col-sm-4 control-label">Password </label>-->
+
+<!--<div class="col-sm-8">-->
+<!--<input name="password" type="password" class="form-control" id="inputUserPassword"-->
+<!--placeholder="password">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<label for="inputUserPassword2" class="col-sm-4 control-label">Confirm Password </label>-->
+
+<!--<div class="col-sm-8">-->
+<!--<input name="password2" type="password" class="form-control" id="inputUserPassword2"-->
+<!--placeholder="password">-->
+<!--</div>-->
+<!--</div>-->
+<!--<br/>-->
+
+<!--<div class="form-group">-->
+<!--<div class="col-sm-offset-1 col-sm-10">-->
+<!--<button type="submit" class="btn btn-default">Sign Up</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+
+<!--<br/>-->
+<!--</div>-->
+
+<script>
+    $(document).ready(function ()
+    {
+        $(function ()
+        {
+            $('input[name="appShortName"]').keyup(function ()
+            {
+                var newValue = $(this).val().replace(/[^\w]/gi, '')
+                $(this).val(newValue);
+            });
+        });
+    });
+</script>
+
+{{> footer }}

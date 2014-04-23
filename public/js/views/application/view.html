@@ -1,0 +1,70 @@
+<h2><a ng-href="#">My Apps</a> / {{app.name}}</h2>
+
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+        <div class="pull-right">
+            <a href="#" ng-href="#/app/{{app.id}}/edit" class="btn btn-default btn-xs">Edit</a>
+        </div>
+
+        <div>BaseUrl: {{app.base_url}}</div>
+        <div>Active:
+            <span ng-if="app.active > 0">
+            <!--<i class="glyphicon glyphicon-ok-sign" style="color:green"></i>-->
+            Yes
+        </span>
+            <span ng-if="app.active == 0">No</span>
+
+        </div>
+        <div>Public: <span ng-if="app.public > 0">
+            Yes<!--<i class="glyphicon glyphicon-ok-sign" style="color:green"></i>--></span>
+            <span ng-if="app.public == 0">No</span>
+        </div>
+        <div>Description: {{app.description}}</div>
+
+        <hr/>
+
+        <h4>Resources</h4>
+
+        <table class="table table-condensed table-striped table-hover" ng-if="resources">
+            <thead>
+            <tr>
+                <th>Path</th>
+                <th>Type</th>
+                <th>Response Code</th>
+                <th>Content-Type</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody class="table-bordered">
+            <tr ng-repeat="res in resources">
+                <td>{{res.path}}</td>
+                <td>
+                    <span ng-if="res.type == 'js'">Advanced</span>
+                    <span ng-if="res.type == 'simple'">Simple</span>
+                </td>
+                <td>
+                    <span ng-if="res.http_code == null">200</span>
+                    <span ng-if="res.http_code != null">{{res.http_code}}</span>
+                </td>
+                <td>
+                    {{res.content_type}}
+                </td>
+                <td><a href="#" ng-href="#/app/{{app.id}}/rsrc/{{res.id}}/edit"
+                       class="pull-right btn btn-info btn-xs">Edit</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <br/>
+        <div class="pull-right">
+            <a ng-click="delete()" class="btn btn-danger btn-xs confirm">Delete App</a>
+        </div>
+        <a href="#" class="btn btn-primary btn-xs" ng-href="#/app/{{app.id}}/rsrc/create">Create Resource</a>
+
+    </div>
+
+</div>
+

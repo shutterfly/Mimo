@@ -1,0 +1,74 @@
+{{> header }}
+
+<!-- Clean Up input text -->
+<script>
+    $(document).ready(function ()
+    {
+        $(function ()
+        {
+            $('input[name="appShortName"]').keyup(function ()
+            {
+                var newValue = $(this).val().replace(/[^\w]/gi, '')
+                $(this).val(newValue);
+            });
+        });
+    });
+</script>
+<!-- Create an App in Store -->
+
+<div style="text-align:center;">
+    <div>
+        <!-- Create an App in Store -->
+        <br/>
+
+        <form name="appForm" class="form-horizontal form-signin" role="form" onsubmit="return validateAppForm()"
+              action="/user/{{user_id}}/app/create" method="post">
+            <h2 class="form-signin-heading">Create an App</h2>
+            <br/>
+
+            <div class="form-group">
+                <label for="inputAppName" class="col-sm-2 control-label">Name </label>
+
+                <div class="col-sm-10">
+                    <input name="appName" type="text" class="form-control" id="inputAppName"
+                           placeholder="Application Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAppShortName" class="col-sm-2 control-label">Short Name </label>
+
+                <div class="col-sm-10">
+                    <input name="appShortName" type="text" class="form-control" id="inputAppShortName"
+                           placeholder="Short Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="selectActive" class="col-sm-2 control-label">Active </label>
+
+                <div class="col-sm-10">
+                    <select name="appActive" id="selectActive" class="form-control">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+            <br/>
+
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="submit" class="btn btn-default">Create It</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- List Apps in Store -->
+    <div>
+        <!--<a class="btn btn-primary btn-large" href="/app">-->
+        <a class="btn btn-primary btn-large" href="/user/{{user_id}}/app">
+            List all apps in Store
+        </a>
+    </div>
+    <br/>
+</div>
+
+{{> footer }}
